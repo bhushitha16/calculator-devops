@@ -1,9 +1,6 @@
 services:
   calculator:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: calculator:compose
+    image: ${DOCKER_IMAGE:-calculator}:${IMAGE_TAG:-compose}
     container_name: calculator-app
     environment:
       SPRING_PROFILES_ACTIVE: docker

@@ -15,3 +15,7 @@ A simple Calculator REST API built using Java, Spring Boot, and Maven.
 
 ```bash
 ./mvnw clean package
+
+## CI/CD Pipeline
+
+This project uses Jenkins to automatically build, test, containerize, and deploy the Calculator REST API using Docker Compose.

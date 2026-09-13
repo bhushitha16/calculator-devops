@@ -104,9 +104,8 @@ pipeline {
     post {
 
         success {
-            emailext(
+            mail(
                 to: "${EMAIL_TO}",
-                from: "${EMAIL_TO}",
                 subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
 Build successful.
@@ -124,9 +123,8 @@ The application was successfully deployed using Docker Compose.
         }
 
         failure {
-            emailext(
+            mail(
                 to: "${EMAIL_TO}",
-                from: "${EMAIL_TO}",
                 subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
 Build failed.

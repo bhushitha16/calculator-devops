@@ -3,7 +3,7 @@ pipeline {
 
     options {
         disableConcurrentBuilds()
-	disableDefaultCheckout()
+	skipDefaultCheckout()
     }
 
     environment {

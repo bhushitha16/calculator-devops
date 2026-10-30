@@ -3,6 +3,7 @@ pipeline {
 
     options {
         disableConcurrentBuilds()
+	disableDefaultCheckout()
     }
 
     environment {
@@ -13,6 +14,11 @@ pipeline {
     }
 
     stages {
+	stage('Prepare Workspace') {
+    		steps {
+   	     sh 'docker rm -f calculator-nginx || true'
+    		}
+	}
 
         stage('Checkout') {
             steps {
@@ -105,7 +111,7 @@ pipeline {
 
         success {
             mail(
-                to: "${EMAIL_TO}",
+                to: "${env.EMAIL_TO}",
                 subject: "SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
 Build successful.
@@ -124,7 +130,7 @@ The application was successfully deployed using Docker Compose.
 
         failure {
             mail(
-                to: "${EMAIL_TO}",
+                to: "${env.EMAIL_TO}",
                 subject: "FAILURE: ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
 Build failed.

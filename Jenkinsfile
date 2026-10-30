@@ -105,12 +105,6 @@ pipeline {
                 '''
             }
         }
-stage('Test Failure Email (Temporary)') {
-    steps {
-        echo 'Testing Jenkins failure notification'
-        sh 'exit 1'
-    }
-}
     }
 
     post {

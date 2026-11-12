@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 public class CalculatorService {
 
     public double add(double a, double b) {
+	System.out.println("Addition API called!");
 	return a + b;
     }
 
